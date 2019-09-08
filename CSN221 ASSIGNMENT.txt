@@ -1,0 +1,49 @@
+//BALNE NITEESHA
+//18114017
+//SIMPLE RISC PROGRAM TO FIND THE SMALLEST RAMANUJAN NUMBER 1729
+
+MOV r0 2
+
+.loop0:
+MOV r1 0
+MOV r2 1
+
+.loop1:
+ADD r3 r2 1
+MUL r4 r2 r2
+MUL r4 r4 r2
+
+.loop2:
+MUL r5 r3 r3
+MUL r5 r5 r3
+ADD r6 r4 r5
+CMP r6 r0
+beq.foo1
+
+.foo:
+ADD r3 r3 1
+MUL r5 r3 r3
+MUL r5 r5 r3
+CMP r0 r5
+bgt.loop2
+
+ADD r2 r2 1
+MUL r4 r2 r2
+MUL r4 r4 r2
+CMP r0 r4
+bgt.loop1
+
+CMP r1 2
+beq.foo2
+ADD r0 r0 1
+b.loop0
+
+.foo2:
+exit
+
+.foo1:
+ADD r1 r1 1
+b.foo
+
+//Output is available in the register r0...
+
